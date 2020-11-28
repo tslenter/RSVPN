@@ -8,7 +8,7 @@ Remote Syslog Cloud Connector is a modified version of OpenVPN [road warrior]. M
 
 All these changes gives you a private network for the nodes @ decentral places. This connector can work on a RSX node or as standalone.
 
-By enrolling this unit, clients/core layer can connect with an encrypted connection. Make sure if you make this unit a central place to connect to the VPN network 192.168.30.0/24 is know within the infrastructure netwerk.
+By enrolling this unit, clients/core layer can connect with an encrypted connection. If you make this unit a central place to connect to the VPN network then this network must be advertised within the infrastructure netwerk.
 
 ### 1.1 Original message openvpn-install (https://git.io/vpn):
 OpenVPN [road warrior](http://en.wikipedia.org/wiki/Road_warrior_%28computing%29) installer for Ubuntu, Debian, CentOS and Fedora.
