@@ -1,10 +1,10 @@
 ## 1 What is Remote Syslog Cloud Connector?:
 Remote Syslog Cloud Connector is a modified version of OpenVPN [road warrior]. More info @ section 1.1 and 1.2. The following changes are made:
-1) Default gateway ip4/ipv6 is not routed through the VPN
-2) Only one host route will be created, this allows you to control the server on a private address.
+1) Default gateway ip4/ipv6 is not routed through the VPN, only the default 192.168.30.0/24 will be routed to the clients.
+2) Only one host route will be created, this allows you to control the server or services on a private address. This will be done on the lo adapter.
 3) Default ip adresses are changed to 192.168.30.0/24
 4) DNS is disabled
-5) The default lo adapter will get a extra IP
+5) Client-to-Client traffic is allowed
 
 ### 1.1 Original message openvpn-install (https://git.io/vpn):
 OpenVPN [road warrior](http://en.wikipedia.org/wiki/Road_warrior_%28computing%29) installer for Ubuntu, Debian, CentOS and Fedora.
