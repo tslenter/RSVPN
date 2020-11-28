@@ -1,5 +1,7 @@
-## 1 Installation VPN connector for Remote Syslog:
+## 1 Installation VPN/Cloud connector for Remote Syslog:
 git clone https://github.com/tslenter/openvpn-install
+
+
 
 
 ## 2 Original message openvpn-install (https://git.io/vpn):
