@@ -5,11 +5,11 @@ Remote Syslog Cloud Connector is a modified version of OpenVPN [road warrior]. M
 3) Default ip adresses are changed to 192.168.30.0/24
 4) DNS is disabled
 5) Client-to-Client traffic is allowed
-6) Static ip address can be assigned
+6) Static ip addresses can be assigned
 
-All these changes gives you a private network for the nodes @ decentral places. This connector can work on a RSX node or as standalone.
+With these settings you are able to create a secure network for logging only.
 
-By enrolling this unit, clients/core layer can connect with an encrypted connection. If you make this unit a central place to connect to the VPN network then this network must be advertised within the infrastructure netwerk.
+By enrolling this unit, clients/core layer can connect with an encrypted connection. If you place this concentrator as central gateway for logging then this network (default: 192.168.30.0 255.255.255.0) must be advertised within the infrastructure netwerk.
 
 ### 1.1 Original message openvpn-install (https://git.io/vpn):
 OpenVPN [road warrior](http://en.wikipedia.org/wiki/Road_warrior_%28computing%29) installer for Ubuntu, Debian, CentOS and Fedora.
@@ -17,7 +17,7 @@ OpenVPN [road warrior](http://en.wikipedia.org/wiki/Road_warrior_%28computing%29
 This script will let you set up your own VPN server in no more than a minute, even if you haven't used OpenVPN before. It has been designed to be as unobtrusive and universal as possible.
 
 ### 1.2 Donations for the original creaters of this openVPN installation:
-If you want to show your appreciation for the original creators of the unmodified script, you can donate via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBAYDL34Z7J6L) or [cryptocurrency](https://pastebin.com/raw/M2JJpQpC). Thanks!
+If you want to show your appreciation for the original creators of the unmodified script, you can make a donation via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBAYDL34Z7J6L) or [cryptocurrency](https://pastebin.com/raw/M2JJpQpC). Thanks!
 
 ## 2 Installation VPN/Cloud connector for Remote Syslog:
 Default installation steps:
@@ -49,7 +49,7 @@ Name [client]: gateway
 OpenVPN installation is ready to begin.
 ```
 
-If you like to add a static IP to a clinet use the following guide:
+If you like to add a static IP to a client use the following guide:
 ```
 Run the openvpn-install.sh script and add a client:
 OpenVPN is already installed.
