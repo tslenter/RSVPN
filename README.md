@@ -68,7 +68,7 @@ After the client is added run:
 echo "ifconfig-push 192.168.30.x 255.255.255.0" > /etc/openvpn/ccd/Remote_Syslog_Node
 
 x = a free address within the OpenVPN subnet
-Remote_Syslog_Node = the name of the client, provided eithin the openvpn-install script
+Remote_Syslog_Node = the name of the client, provided within the openvpn-install script
 ```
 
 ## 3. Donation
