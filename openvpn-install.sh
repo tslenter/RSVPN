@@ -100,7 +100,9 @@ new_client () {
 
 if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 	clear
-	echo 'Welcome to this OpenVPN road warrior installer!'
+	echo 'Welcome to this OpenVPN Remote Syslog Cloud installer!'
+	mkdir /etc/openvpn/ccd
+	echo "ifconfig-push 192.168.30.3 255.255.255.0" > /etc/openvpn/ccd/client
 	# If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
 		ip=$(ip -4 addr | grep inet | grep -vE '127(\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\.[0-9]{1,3}){3}')
@@ -275,6 +277,7 @@ auth SHA512
 tls-crypt tc.key
 topology subnet
 client-to-client
+client-config-dir /etc/openvpn/ccd
 server 192.168.30.0 255.255.255.0" > /etc/openvpn/server/server.conf
 	# IPv6
 	if [[ -z "$ip6" ]]; then
@@ -554,6 +557,7 @@ else
 				crontab -l | grep -v '/usr/sbin/ip addr' | crontab -
 				systemctl disable --now openvpn-server@server.service
 				rm -rf /etc/openvpn/server
+				rm -rf /etc/openvpn/ccd
 				rm -f /etc/systemd/system/openvpn-server@server.service.d/disable-limitnproc.conf
 				rm -f /etc/sysctl.d/30-openvpn-forward.conf
 				if [[ "$os" = "debian" || "$os" = "ubuntu" ]]; then

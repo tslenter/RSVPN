@@ -5,6 +5,7 @@ Remote Syslog Cloud Connector is a modified version of OpenVPN [road warrior]. M
 3) Default ip adresses are changed to 192.168.30.0/24
 4) DNS is disabled
 5) Client-to-Client traffic is allowed
+6) Static ip address can be assigned
 
 All these changes gives you a private network for the nodes @ decentral places. This connector can work on a RSX node or as standalone.
 
@@ -29,7 +30,7 @@ chmod +x openvpn-install.sh
 
 Select the following options:
 ```
-Welcome to this OpenVPN road warrior installer!
+Welcome to this OpenVPN Remote Syslog Cloud Connector!
 
 Which protocol should OpenVPN use?
    1) UDP (recommended)
@@ -46,6 +47,28 @@ Enter a name for the first client:
 Name [client]: gateway
 
 OpenVPN installation is ready to begin.
+```
+
+If you like to add a static IP to a clinet use the following guide:
+```
+Run the openvpn-install.sh script and add a client:
+OpenVPN is already installed.
+
+Select an option:
+   1) Add a new client
+   2) Revoke an existing client
+   3) Remove OpenVPN
+   4) Exit
+Option: 1
+
+Provide a name for the client:
+Name: Remote_Syslog_Node
+
+After the client is added run:
+echo "ifconfig-push 192.168.30.x 255.255.255.0" > /etc/openvpn/ccd/Remote_Syslog_Node
+
+x = a free address within the OpenVPN subnet
+Remote_Syslog_Node = the name of the client, provided eithin the openvpn-install script
 ```
 
 ## 3. Donation
