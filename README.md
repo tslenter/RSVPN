@@ -49,7 +49,7 @@ Name [client]: gateway
 OpenVPN installation is ready to begin.
 ```
 
-Route internal traffic through the Remote Syslog CLoud connector:
+Route internal traffic through the Remote Syslog Cloud connector:
 ```
 Install:
 sudo apt update && sudo apt upgrade -y 
