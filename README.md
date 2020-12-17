@@ -49,6 +49,28 @@ Name [client]: gateway
 OpenVPN installation is ready to begin.
 ```
 
+Route internal traffic through the Remote Syslog CLoud connector:
+```
+Install:
+sudo apt update && sudo apt upgrade -y 
+sudo apt install openvpn
+
+Edit:
+/etc/sysctl.conf
+Config:
+net.ipv4.ip_forward = 1
+
+Auto start:
+crontab -e
+@reboot /usr/sbin/openvpn --config /root/OpenVPN/openvpn9001.remotesyslog.com.ovpn
+@reboot /usr/sbin/iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+@reboot /usr/sbin/iptables -A FORWARD -i tun0 -o ens160 -m state --state RELATED,ESTABLISHED -j ACCEPT
+@reboot /usr/sbin/iptables -A FORWARD -i ens160 -o tun0 -j ACCEPT
+
+Info:
+Don't forget to create the static route within the infrastructure to 192.168.30.0/24 with the next hop with the local ip of the server.
+```
+
 If you like to add a static IP to a client use the following guide:
 ```
 Run the openvpn-install.sh script and add a client:
