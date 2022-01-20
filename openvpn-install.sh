@@ -101,6 +101,7 @@ new_client () {
 if [[ ! -e /etc/openvpn/server/server.conf ]]; then
 	clear
 	echo 'Welcome to this OpenVPN Remote Syslog Cloud installer!'
+	mkdir /etc/openvpn
 	mkdir /etc/openvpn/ccd
 	echo "ifconfig-push 192.168.30.3 255.255.255.0" > /etc/openvpn/ccd/client
 	# If system has a single IPv4, it is selected automatically. Else, ask the user
